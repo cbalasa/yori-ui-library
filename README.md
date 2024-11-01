@@ -34,10 +34,6 @@ npm run storybook
 Storybook will launch a local development server with an interactive UI for
 browsing, testing, and editing components.
 
-```bash
-This keeps the formatting clear and readable within Markdown. Let me know if you need further adjustments!
-```
-
 ## Contributing
 
 Contributions are welcome! If you find a bug or have an idea for an improvement,
