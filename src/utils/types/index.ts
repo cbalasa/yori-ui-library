@@ -1,7 +1,7 @@
 import React from "react";
 
 export type PropsOf<
-	C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<unknown>
+	C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<unknown>,
 > = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
 
 type AsProp<C extends React.ElementType> = {
@@ -17,9 +17,10 @@ type AsProp<C extends React.ElementType> = {
  * (`OverrideProps`), ensuring that any duplicates are overridden by the overriding
  * set of props.
  */
+
 export type ExtendableProps<
 	ExtendedProps = {},
-	OverrideProps = {}
+	OverrideProps = {},
 > = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
 
 /**
@@ -29,7 +30,7 @@ export type ExtendableProps<
  */
 export type InheritableElementProps<
 	C extends React.ElementType,
-	Props = {}
+	Props = {},
 > = ExtendableProps<PropsOf<C>, Props>;
 
 /**
@@ -38,7 +39,7 @@ export type InheritableElementProps<
  */
 export type PolymorphicComponentProps<
 	C extends React.ElementType,
-	Props = {}
+	Props = {},
 > = InheritableElementProps<C, Props & AsProp<C>>;
 
 export type PolymorphicRef<C extends React.ElementType> =
@@ -46,5 +47,5 @@ export type PolymorphicRef<C extends React.ElementType> =
 
 export type PolymorphicComponentPropsWithRef<
 	C extends React.ElementType,
-	Props = {}
+	Props = {},
 > = PolymorphicComponentProps<C, Props> & { ref?: PolymorphicRef<C> };
